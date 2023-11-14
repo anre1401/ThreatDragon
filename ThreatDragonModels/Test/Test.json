@@ -44,8 +44,33 @@
           },
           {
             "position": {
-              "x": 80,
-              "y": 290
+              "x": 260,
+              "y": 13.000000000001023
+            },
+            "size": {
+              "width": 380,
+              "height": 370
+            },
+            "shape": "trust-boundary-box",
+            "attrs": {
+              "headerText": {
+                "text": "Firma Allsecure"
+              }
+            },
+            "id": "27f43bfa-24be-4e3e-8104-0e43468dda35",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Firma Allsecure",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 57.5,
+              "y": 300
             },
             "size": {
               "width": 112.5,
@@ -79,11 +104,11 @@
           {
             "position": {
               "x": 290,
-              "y": 250
+              "y": 230
             },
             "size": {
-              "width": 100,
-              "height": 100
+              "width": 130,
+              "height": 120
             },
             "attrs": {
               "text": {
@@ -146,7 +171,7 @@
           },
           {
             "position": {
-              "x": 373,
+              "x": 320,
               "y": 80
             },
             "size": {
@@ -171,17 +196,20 @@
             "id": "e10755d4-1700-4d72-861b-5445b49ac3d9",
             "zIndex": 4,
             "data": {
-              "type": "tm.Store",
-              "name": "Log-DB",
+              "type": "tm.Flow",
+              "name": "Data Flow",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "isALog": true,
               "storesCredentials": false,
-              "isEncrypted": true,
+              "isEncrypted": false,
               "isSigned": true,
               "hasOpenThreats": false,
-              "threats": []
+              "threats": [],
+              "isBidirectional": false,
+              "protocol": "",
+              "isPublicNetwork": false
             }
           },
           {
@@ -257,6 +285,145 @@
               "hasOpenThreats": false,
               "threats": []
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Login",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "ed9b74b9-6e4d-4331-8dcf-ce6566f52b01",
+            "source": {
+              "cell": "3040d949-c54f-445e-968e-057636b2e9bc"
+            },
+            "target": {
+              "cell": "fc08ae3c-9364-45d1-8c35-ddebd04aab69"
+            },
+            "vertices": [],
+            "labels": [
+              "Login"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "1. Auth Challenge",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "b1defed2-5d8f-4679-bb48-ed13e4c6bbec",
+            "source": {
+              "cell": "fc08ae3c-9364-45d1-8c35-ddebd04aab69"
+            },
+            "target": {
+              "cell": "e2047be7-0350-459f-b9fa-8dc01a7a4f57"
+            },
+            "vertices": [
+              {
+                "x": 450,
+                "y": 220
+              }
+            ],
+            "labels": [
+              "1. Auth Challenge"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log(Login,OTT,Phone Number)",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "e6a60560-b114-46d3-bd6b-8c6fcf3a0530",
+            "source": {
+              "cell": "e2047be7-0350-459f-b9fa-8dc01a7a4f57"
+            },
+            "target": {
+              "cell": "e10755d4-1700-4d72-861b-5445b49ac3d9"
+            },
+            "vertices": [
+              {
+                "x": 530,
+                "y": 150
+              }
+            ],
+            "labels": [
+              "Log(Login,OTT,Phone Number)"
+            ]
           }
         ]
       }
