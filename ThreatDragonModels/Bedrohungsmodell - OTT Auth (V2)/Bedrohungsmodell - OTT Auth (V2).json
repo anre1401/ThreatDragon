@@ -80,7 +80,7 @@
                   "status": "Open",
                   "severity": "Low",
                   "type": "Spoofing",
-                  "description": "(CAPEC 156) ( Angriffs Taktik: https://attack.mitre.org/techniques/T1566/)\nD(6)R(8)E(9)A(6)D(8) -> 37/50 -> High.\nEin Nutzer wird durch eine Fake Email auf eine Ähnlich aussehende Seite gelockt, und dort dazu aufgefordert seine Login Credentials ein zu geben.",
+                  "description": "(CAPEC 156) ( Angriffs Taktik: https://attack.mitre.org/techniques/T1566/)\nD(6)R(8)E(9)A(6)D(8) -> 37/50 -> High.\nEin Nutzer wird durch eine Fake Email auf eine Ähnlich aussehende Seite gelockt, und dort dazu aufgefordert seine Login Credentials ein zu geben.\n\nOWASP/ASVS:\nnichts gefunden\n\nOWASP/MASVS:\nMASVS-CRYPTO: Cryptography",
                   "mitigation": "- Eigene Emails an Nutzer Signieren, und Nutzer auch auf Signatur aufmerksam machen\n-> Beschreibung: Nutzer werden nichtmehr durch Phishing Emails in die irre geführt, und folgen somit keinen Links auf Phishing Seiten\n-> Umsetzung: Jede Email erhält eine digitale Signatur, durch welche sie zum Abesender eindeutig zuordnebar ist\n-> D(2)(Nutzer wurden aufgeklärt->Risiko verlagerung) R(1)E(1)A(3)D(6) -> 13/50 -> LOW\n-> (Mitre Defend Matrix ID: D3-MAN)",
                   "modelType": "STRIDE",
                   "new": false,
@@ -93,8 +93,8 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Elevation of privilege",
-                  "description": "(CAPEC 152)  (Angriffs Taktik:https://attack.mitre.org/techniques/T1539/)\nD(10)R(3)E(6)A(8)D(4) -> 31/50 -> Medium .\nDer Nutzer kann sich Root zugriff aufgrund von nicht Randomisierten Session Tokens verschaffen, in dem er durch ausprobieren das Token eines höher Priviligierten Nutzers rät, und übernimmt.",
-                  "mitigation": "- Nur kurzfristige gültigkeit von Session Tokens\nBeschreibung: Session Tokens sind nur für kurze Zeit gültig, und müssen dann neu ausgstellt werden. Dies erschwert das eraten von Tokens, und limitiert deren Nutzen falls kompromitiert\n (Mitre D3fend id: D3-CRO)\n-> D(4)R(1)E(3)A(8)D(2) -> 18/50 -> Medium\n\nWeitere Möglichkeiten:\n- Reauthentifizierungs-Anfrage des Nutzers bei kritischen veränderungen\n- Randomisierung von Session Tokens",
+                  "description": "(CAPEC 152)  (Angriffs Taktik:https://attack.mitre.org/techniques/T1539/)\nD(10)R(3)E(6)A(8)D(4) -> 31/50 -> Medium .\nDer Nutzer kann sich Root zugriff aufgrund von nicht Randomisierten Session Tokens verschaffen, in dem er durch ausprobieren das Token eines höher Priviligierten Nutzers rät, und übernimmt.\n\nOWASP/ASVS:  V3.2 Session Binding\n3.2.1 Verify the application generates a new session token on user\nauthentication. (C6)\n\n3.2.2 Verify that session tokens possess at least 64 bits of entropy. (C6)\n\n3.2.3 Verify the application only stores session tokens in the browser using\nsecure methods such as appropriately secured cookies (see section\n3.4) or HTML 5 session storage.\n\n3.2.4 Verify that session tokens are generated using approved\ncryptographic algorithms. (C6)\n\nOWASP/MASVS:\nMASVS-STORAGE: Storage\n\n\n",
+                  "mitigation": "- Nur kurzfristige gültigkeit von Session Tokens\nBeschreibung: Session Tokens sind nur für kurze Zeit gültig, und müssen dann neu ausgstellt werden. Dies erschwert das eraten von Tokens, und limitiert deren Nutzen falls kompromitiert\n (Mitre D3fend id: D3-CRO)\n-> D(4)R(1)E(3)A(8)D(2) -> 18/50 -> Medium\n\n\n\nWeitere Möglichkeiten:\n- Reauthentifizierungs-Anfrage des Nutzers bei kritischen veränderungen\n- Randomisierung von Session Tokens",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 110,
@@ -142,7 +142,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Denial of service",
-                  "description": "(CAPEC 469) (Angriffs Technik: https://attack.mitre.org/techniques/T1498/)\nD(9)R(10)E(9)A(10)D(10) -> 48/50 -> High.\nEin Botnetzt stellt vielfache Anfragen an den Login Service, welche aufgrund der bearbeitungszeit des OTT für einige Zeit offen bleiben, und dadurch den Server überlasten",
+                  "description": "(CAPEC 469) (Angriffs Technik: https://attack.mitre.org/techniques/T1498/)\nD(9)R(10)E(9)A(10)D(10) -> 48/50 -> High.\nEin Botnetzt stellt vielfache Anfragen an den Login Service, welche aufgrund der bearbeitungszeit des OTT für einige Zeit offen bleiben, und dadurch den Server überlasten\n\nOWASP/ASVS:\nV11.1 Business Logic Security\n11.1.4 Verify that the application has anti-automation controls to protect against\nexcessive calls such as mass data exfiltration, business logic requests, file\nuploads or denial of service attacks.\n\nOWASP/MASVS:\nnichts gefunden",
                   "mitigation": "Via Clustering dynamisch zusätzliche Server hochfahren lassen\n-> Beschreibung: Bei erhöhter Anfrage Last, werden weitere Server Instanzen hochgefahren, welche den zusätzlichen Traffic entgegen nehmen können. Und daher erhöhte Ausfallsicherheit garantieren.\n(Mitre D3fend ID: D3-CSPP ?)\n-> D(6)R(8)E(6)(Es werden deutlich mehr Botressurcen benötigt)A(6)(Es sind wenn dann weniger nutzer Betroffen, da mehr Server zum ausweichen zur verfügung stehen)D(8) ->34 -> Medium\n\nWeitere Möglichkeiten:\n- Einen Externen Service wie Cloudflare vorschalten",
                   "modelType": "STRIDE",
                   "new": false,
@@ -194,7 +194,7 @@
                   "status": "Mitigated",
                   "severity": "Low",
                   "type": "Denial of service",
-                  "description": "(CAPEC: evtl. 124) (Angriffstechnik: evtl https://attack.mitre.org/techniques/T1134/)\nD(6)R(2)E(2)A(2)D(1) -> 13/50 -> Low\nJemand verschafft sich Zugriff auf den OTT erzeugungsprozess, und leitet individuell falsche OTT Tokens weiter (wohingegen die Original Tokens unverändert bleiben). Welche dann einem Nutzer den Login verwähren",
+                  "description": "(CAPEC: evtl. 124) (Angriffstechnik: evtl https://attack.mitre.org/techniques/T1134/)\nD(6)R(2)E(2)A(2)D(1) -> 13/50 -> Low\nJemand verschafft sich Zugriff auf den OTT erzeugungsprozess, und leitet individuell falsche OTT Tokens weiter (wohingegen die Original Tokens unverändert bleiben). Welche dann einem Nutzer den Login verwähren\n\nOWASP/ASVS:\nV2.8 One Time Verifier\n2.8.2 Verify that symmetric keys used to verify submitted OTPs are\nhighly protected, such as by using a hardware security module or\nsecure operating system based key storage.\n\nOWASP/MASVS:\nNichts gefunden",
                   "mitigation": "OTT können an jeder Stelle während der Übertragung via Prüfsummen oder ähnlichen)auf ihrer korrektheit geprüft werden (wie z.B. Kreditkarten Nummern etc)\nBeschreibung: jeder OTT Code lässt sich mit einem Prüfsummen verfahren auf seine inhaltliche korrektheit überprüfen, und wird sobal er während der Übertragung als Fehlerhaft erkannt wird, verworfen und neu generiert. \n(Mitre D3fend: evtl D3-MAN)\n-> D(0)R(0)E(0)A(0)D(0) -> 0 Der Angriff wurde effektiv Mitigiert, denn Fehlerhafte Tokens werden einfach sofort korrekt neu erzeugt.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -413,7 +413,11 @@
             },
             "vertices": [
               {
-                "x": 590,
+                "x": 370,
+                "y": 310
+              },
+              {
+                "x": 570,
                 "y": 470
               },
               {
@@ -435,6 +439,10 @@
               {
                 "x": 270,
                 "y": -350
+              },
+              {
+                "x": 246,
+                "y": -230
               },
               {
                 "x": 243,
@@ -693,8 +701,16 @@
             },
             "vertices": [
               {
+                "x": 660,
+                "y": 55
+              },
+              {
                 "x": 720,
                 "y": 40
+              },
+              {
+                "x": 760,
+                "y": 20
               }
             ]
           },
@@ -906,6 +922,10 @@
               {
                 "x": 480,
                 "y": 250
+              },
+              {
+                "x": 450,
+                "y": 210
               }
             ]
           },
@@ -1036,7 +1056,7 @@
                   "status": "Open",
                   "severity": "Low",
                   "type": "Tampering",
-                  "description": "(CAPEC: 268) (Angriffs Technik: https://attack.mitre.org/techniques/T1565/ )\nD(3)R(3)E(1)A(8)D(1) -> 16/50 -> Low\nJemand könnte log Daten hinzufügen oder löschen, in dem er/sie Physischen Zugriff auf das System bekommt, und auch schreibrechte auf diesem.",
+                  "description": "(CAPEC: 268) (Angriffs Technik: https://attack.mitre.org/techniques/T1565/ )\nD(3)R(3)E(1)A(8)D(1) -> 16/50 -> Low\nJemand könnte log Daten hinzufügen oder löschen, in dem er/sie Physischen Zugriff auf das System bekommt, und auch schreibrechte auf diesem.\n\nOWASP/ASVS:\nV7.3 Log Protection\n7.3.3 Verify that security logs are protected from unauthorized access and\nmodification. (C9)\n",
                   "mitigation": "- Automatische Backups der Logdaten (geschieht ja schon indirekt via Monatsreport)\nBeschreibung: Es werden Backups der Logs nach dem 3-2-1 Prinzip (oder ähnlich) angefertigt. Aka es exestieren 3 Kopien der Daten, auf 2 unterschiedlichen Medienformen, von der Mindestens eine Physisch woanders gelagert wird. Hier in dem Falle wäre z.B. der Monatsreport schon ein anderer Ort. Die logs werden regelmässig mit mindestens 2 Backups gegengeprüft, wobei dann auftretende Veränderungen erkannt und behoben werden können.\n(Mitre D3fend ID: evtl. D3-RD)\n-> D(1)R(3)E(1)A(4)(Wenn die Logs Zeitig repariert werden, gibt es nicht viele Betroffende)D(1)-> 13/50 -> LOW \n\nWeitere Möglichkeiten: \n- Die Datenbank evtl vom SIEM mit überwachen lassen\n- Nur lokalen Zugriff erlauben",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1049,7 +1069,7 @@
                   "status": "Mitigated",
                   "severity": "Low",
                   "type": "Repudiation",
-                  "description": "CAPEC(538). Attack Technik: https://attack.mitre.org/techniques/T1195/002/\nD(8)R(2)E(1)A(6)D(2) -> 19/50 -> Medium\nLogs werden aufgrund einer Manipulierten/Fehlerhaften Datenbank Schittstellen Implementation innerhalb der Datenbank nicht immer (korrekt) erzeugt. Aka. die Datenbank Schnittstelle wurde entweder manipuliert, oder es wurde eine fehlerhafte Datenbank Schnittstelle benutzt.",
+                  "description": "CAPEC(538). Attack Technik: https://attack.mitre.org/techniques/T1195/002/\nD(8)R(2)E(1)A(6)D(2) -> 19/50 -> Medium\nLogs werden aufgrund einer Manipulierten/Fehlerhaften Datenbank Schittstellen Implementation innerhalb der Datenbank nicht immer (korrekt) erzeugt. Aka. die Datenbank Schnittstelle wurde entweder manipuliert, oder es wurde eine fehlerhafte Datenbank Schnittstelle benutzt.\n\nOWASP/ASVS:\nV7.1 Log Content\nVerify that each log event includes necessary information that would allow for\na detailed investigation of the timeline when an event happens. (C9)",
                   "mitigation": "Logs durch automatisierte Tests prüfen lassen.\nBeschreibung: Ein neu erzeugter Logeintrag wird durch ein weiteres Software Tool direkt nach seiner erstellung nochmals geprüft. Aka auf korrekte erstellung. Falls dieser dann Fehlerhaft oder unvollständig ist, wird dieser neu erstellt, so lange bis ein korrekter EIntrag festgestellt wird.\n(Mitre D3fend ID: evtl. D3-FHRA )\n-> D(0)R(0)E(0)A(0)D(0) -> 0/50 Die Gefahr dürfte so eigentlich Mitigated sein\n\nAlternative möglichkeiten:\n- Software nur von vertrauenswürdigen Quellen beziehen, und Regelmässig mit bekannten Hashes von korrekter Software vergleichen",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1097,7 +1117,7 @@
                   "status": "Mitigated",
                   "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "(CAPEC: 94) (Attack Technik: https://attack.mitre.org/techniques/T1557/ )\nD(8)R(6)E(6)A(8)D(8) -> 36/50 -> High\nDie via Email versendeten Management Reporst sind nur signiert, aber nicht verschlüsselt. Aka. nutzer könnten via Man-In-The Middle diese entweder abfangen, oder direkt im erzeugenden System auslesen, wenn diese Zugriff darauf haben.",
+                  "description": "(CAPEC: 94) (Attack Technik: https://attack.mitre.org/techniques/T1557/ )\nD(8)R(6)E(6)A(8)D(8) -> 36/50 -> High\nDie via Email versendeten Management Reporst sind nur signiert, aber nicht verschlüsselt. Aka. nutzer könnten via Man-In-The Middle diese entweder abfangen, oder direkt im erzeugenden System auslesen, wenn diese Zugriff darauf haben.\n\nOWASP/ASVS:\nV1.9 Communications Architecture\n1.9.1 Verify the application encrypts communications between components,\nparticularly when these components are in different containers, systems,\nsites, or cloud providers. (C3)\n",
                   "mitigation": "- Die Daten im Report verschlüsseln\nBeschreibung: Der Report sowie die von LogDB abgefragten Daten werden vor dem Signieren nocheinmal mit einer annerkannten Verschlüsselung zusätzlich Verschlüsselt.\n(Mitre D3fend ID: D3-MENCR)\n-> D(0)R(0)E(0)A(0)D(0) -> 0 Mitigated, da bei funktionaler Verschlüsselung nichts mehr ausgelesen werden kann\n\nAlternative Möglichkeiten:\n- Zugriff aufs System nur durch Passwort oder ähnliches absichern",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1185,11 +1205,11 @@
               "threats": [
                 {
                   "id": "1766fc14-111c-4ddb-8f24-e56d961d4d80",
-                  "title": "Standart Passwörter",
+                  "title": "Standard Passwörter",
                   "status": "Open",
                   "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "(CAPEC: 70) (Angriffs Technik: https://attack.mitre.org/techniques/T0812/ )\nD(10)R(10)E(10)A(8)D(6)(Leicht zu Discovern, wenn man erstmal zugriff zum SIEM hat) -> 44/50->High\nJemand erhält zugriff auf das SIEM durch einen default Login. Und kann nun informationen über die vom SIEM überwachten Systeme auslesen.",
+                  "description": "(CAPEC: 70) (Angriffs Technik: https://attack.mitre.org/techniques/T0812/ )\nD(10)R(10)E(10)A(8)D(6)(Leicht zu Discovern, wenn man erstmal zugriff zum SIEM hat) -> 44/50->High\nJemand erhält zugriff auf das SIEM durch einen default Login. Und kann nun informationen über die vom SIEM überwachten Systeme auslesen.\n\nOWASP/ASVS:\nV2.1 Password Security\n2.1.1 Verify that user set passwords are at least 12 characters in length\n(after multiple spaces are combined).",
                   "mitigation": "-Keine Standart Logins Nutzen\nBeschreibung: Standart Accounts müssen sofort beim ersten benutzen durch neue Passwörter geschüzt werden, deren Anforderungen vorab definiert werden (Passwort Länge, Zeichensatz etc.). Desweiteren sollten standart nutzer deaktiviert werden, und zusätzliche niedrig Priviligierte Nutzer (jeder mit seinem eigenen Verwendungszweck) für den alltäglichen Gebrauch benuzt und angelegt werden. \n(Mitre D3fend ID: D3-UAP)\n-> D(3)(Da nur niedrig priviligierte Nutzer mit eingeschränkten Blickfeld)R(1)E(1)A(2)(Es werden nur nierig Priviligierte Accounts genutzt, wodruch ein Angreifer keinen vollen Zugriff auf alle Systeme bekommt)D(0)(Es gibt nix mehr zu discovern) -> 7 -> LOW\n",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1241,7 +1261,7 @@
                   "status": "Open",
                   "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "(CAPEC: 94) (Attack Technik: https://attack.mitre.org/techniques/T1557/ )\nD(7)R(6)E(4)A(6)D(2) -> 25/50 -> Medium\nEin Angreifer vorort greift auf das System zu und liest den Traffic wie OTT Requests etc mit.\nDurchs mitlesen erhält er informationen welcher Nutzer exestieren, wie diese zu erreichen sind.",
+                  "description": "(CAPEC: 94) (Attack Technik: https://attack.mitre.org/techniques/T1557/ )\nD(7)R(6)E(4)A(6)D(2) -> 25/50 -> Medium\nEin Angreifer vorort greift auf das System zu und liest den Traffic wie OTT Requests etc mit.\nDurchs mitlesen erhält er informationen welcher Nutzer exestieren, wie diese zu erreichen sind.\n\nOWASP/ASVS:\nV1.9 Communications Architecture\n1.9.1 Verify the application encrypts communications between components,\nparticularly when these components are in different containers, systems,\nsites, or cloud providers. (C3)",
                   "mitigation": "- Zugriff aufs System nur mit Authentifizierungsschlüssel/2FA\nBeschreibung: Jeder Zugriff aufs System ist zusätzlich via 2FA durch rotierende Schlüssel/Oder Personenbezogene Schlüssel (Fingerabdruck, Irisscanner etc) geschüzt. Wodurch mehr als nur ein Passwort kompromitiert werden muss.\n(Mitre D3fend: D3-MFA & D3-BAN )\n-> D(7)R(1)E(1)A(6)D(1) -> 16 -> LOW\n\nWeiter Möglichkeiten:\n- Physische absicherung des Serverraums. \n- Kein Remote Zugriff von außen auf den Server möglich. ",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1299,7 +1319,7 @@
                   "status": "Mitigated",
                   "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "(CAPEC: 70) (Angriffs Technik: https://attack.mitre.org/techniques/T0812/ )\nD(6)R(10)E(9)A(8)D(6)(Leicht zu Discovern, wenn Zugriff auf Datenbank exestiert) -> 39/50->high\nEin Angreifer bekommt zugriff auf die Datenbank durch standart login credentials, und kann Nutzernamen sowie eingestellte OTT Möglichkeiten auslesen.",
+                  "description": "(CAPEC: 70) (Angriffs Technik: https://attack.mitre.org/techniques/T0812/ )\nD(6)R(10)E(9)A(8)D(6)(Leicht zu Discovern, wenn Zugriff auf Datenbank exestiert) -> 39/50->high\nEin Angreifer bekommt zugriff auf die Datenbank durch standart login credentials, und kann Nutzernamen sowie eingestellte OTT Möglichkeiten auslesen.\n\nOWASP/ASVS\nV2.5 Credential Recovery\n2.5.4 Verify shared or default accounts are not present (e.g. \"root\",\n\"admin\", or \"sa\").",
                   "mitigation": "- keine Standart Credentials\nBeschreibung: Standart Accounts müssen beim ersten login durch neue Richtige Accounts mit vorgegeben Passwort Parametern etc. ersetzt werden. Bzw deaktiviert werden.\n(Mitre D3fend: evtl D3-UAP oder evtl D3-CRO)\n-> D(0)(Gibt keine standart logins mehr zu discovern)R(0)E(0)(Es gibt keine standart login zu exploiten)A(0)D(0) -> 0 Effektiv Mitigated -> Low\n\nWeitere Möglichkeiten:\n- Verschlüsseln der Datenbank\n",
                   "modelType": "STRIDE",
                   "new": false,
